@@ -12,6 +12,10 @@ class PostController extends Controller
     public function index()
     {
 
+
+        request()->validate([
+            'key' => ['nullable','string', 'min:1']
+        ]);
         // $posts = Post::all();
 
         $posts = Post::paginate(9);
